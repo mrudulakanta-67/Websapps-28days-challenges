@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        *{
+            background-color: azure;
+        }
+        body{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+        }
+        .item{
+            width:500px;
+            height:300px;
+            background-color:rgb(232, 227, 220);
+            margin-bottom: 4px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+        input{
+            width:300px;
+            height:27px;
+            font-size: 20px;
+            margin-right:10px;
+            border-radius: 5px;
+            border:2px solid gray;
+        }
+        button{
+            width:80px;
+            height:30px;
+            font-size: 20px;
+            border-radius: 5px;
+            border:2px solid gray;
+        }
+        button:hover{
+            background: linear-gradient(135deg,#5b2c83,#b8860b);
+            color:lavenderblush;
+            box-shadow: 0 8px 20px rgba(184,134,11,0.4);
+        }
+        
+    </style>
+<body>
+    <div class="item">
+    <input type="number" id="age">
+    <button onclick="check()">Check</button>
+
+
+    <script>
+        let input=document.getElementById("age");
+        let val = input.value;
+
+        function check(){
+            if (val<18){
+                alert("Not Eligible for vote");
+            }
+            else{
+                alert("Eligible for vote");
+            }
+        }
+        
+    </script>
+    </div>
+      
+</body>
+</html>

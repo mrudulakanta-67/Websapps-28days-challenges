@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color: #eaeef3;
+    }
+    body{
+        height:100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .box{
+        background-color: #b0cff6;
+        width:200px;
+        height:100px;
+        padding:30px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        margin-right:20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(30,58,138,0.4);
+
+    }
+    .zero{
+        font-size: 30px;
+        font-weight: bold;
+        width:200px;
+        height:80px;
+        margin-bottom:40px;
+        border-radius: 8px;
+        background-color: lavenderblush;
+        
+    }
+    .buttons{
+        display:flex;
+        gap:20px;
+        align-items: center;
+    }
+
+    button{
+        padding:10px 15px;
+        font-size:18px;
+        border-radius: 5px;
+        margin-right:10px;
+        border:2px solid gray;
+        background-color: lavenderblush;
+        color:#1e3a8a;
+        box-shadow: 0 8px 20px rgba(39, 37, 32, 0.4);
+        
+    }
+    button:hover{
+        background: linear-gradient(135deg,#5b2c83,#b8860b);
+        color:lavenderblush;
+       
+    }
+</style>
+
+
+
+
+<body>
+
+    
+    <div class="box">
+    <p id="in" class="zero">
+        0
+    </p>
+    </div>
+    <div class="buttons">
+    <button onclick="add()">+</button>
+    <button onclick="sub()">-</button>
+    <button onclick="reset()">Reset</button>
+    </div> 
+
+    <script>
+        let val=0;
+        let cp=document.getElementById("in")
+
+        function add(){
+            val+=1;
+            cp.innerHTML=val;
+        }
+
+        function sub(){
+            val-=1;
+            cp.innerHTML=val;
+        }
+
+        function reset(){
+            val=0;
+            cp.innerHTML=val;
+        }
+    </script>
+</body>
+</html>

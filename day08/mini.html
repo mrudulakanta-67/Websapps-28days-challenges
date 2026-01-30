@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list{
+            background-color: lightblue;
+            height:400px;
+            width:300px;
+            padding:30px;
+            margin-top:50px;
+        }
+        .item{
+            width:auto;
+            height:60px;
+            background-color:antiquewhite;
+            margin-bottom: 4px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="list">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+    <script>
+        let arr=["apple",46,"orange","kiwi",66]
+        let list=document.querySelector(".list")
+
+        let html='';
+        for(let i=0;i<arr.length;i++){
+            html+='<div class="item">'+arr[i]+'</div>';
+        }
+        list.innerHTML=html;//dynamic rentering to use the loop again and agin
+        
+
+
+
+    </script>
+    
+</body>
+</html>
