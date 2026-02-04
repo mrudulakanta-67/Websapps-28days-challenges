@@ -36,63 +36,41 @@
         </div>
     </div>
     <script>
-        
   const display = document.querySelector(".display");
   const buttons = document.querySelectorAll("button");
 
-  let currentValue = "";
+  let value = "";
 
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      const value = button.innerText;
+  buttons.forEach(btn => {
+    btn.onclick = () => {
+      let text = btn.innerText;
 
-      if (value === "AC") {
-        clearDisplay();
-      } 
-      else if (value === "DEL") {
-        deleteLast();
-      } 
-      else if (value === "=") {
-        calculate();
-      } 
-      else {
-        appendValue(value);
+      if (text === "AC") {
+        value = "";
+        display.innerText = "0";
       }
-    });
+      else if (text === "DEL") {
+        value = value.slice(0, -1);
+        display.innerText = value || "0";
+      }
+      else if (text === "=") {
+        try {
+          value = eval(value);
+          display.innerText = value;
+        } catch {
+          display.innerText = "Error";
+          value = "";
+        }
+      }
+      else {
+        if (display.innerText === "0") value = "";
+        value += text;
+        display.innerText = value;
+      }
+    };
   });
-
-  function appendValue(value) {
-    if (display.innerText === "0") {
-      currentValue = value;
-    } else {
-      currentValue += value;
-    }
-    display.innerText = currentValue;
-  }
-
-  function clearDisplay() {
-    currentValue = "";
-    display.innerText = "0";
-  }
-
-  function deleteLast() {
-    currentValue = currentValue.slice(0, -1);
-    display.innerText = currentValue || "0";
-  }
-
-  function calculate() {
-    try {
-      currentValue = eval(currentValue).toString();
-      display.innerText = currentValue;
-    } catch {
-      display.innerText = "Error";
-      currentValue = "";
-    }
-  }
 </script>
 
-
-    </script>
 
 </body>
 
