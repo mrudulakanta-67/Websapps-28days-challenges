@@ -13,7 +13,8 @@
         <div class="display">0</div>
         <div class="buttons">
             <button class="op">AC</button>
-            <button class="op">DEL</button>
+            <button onclick="cleardiplay()" class="op">AC</button>
+
             <button class="op">%</button>
             <button class="op">/</button>
             <button class="num">7</button>
@@ -34,6 +35,64 @@
 
         </div>
     </div>
+    <script>
+        
+  const display = document.querySelector(".display");
+  const buttons = document.querySelectorAll("button");
+
+  let currentValue = "";
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const value = button.innerText;
+
+      if (value === "AC") {
+        clearDisplay();
+      } 
+      else if (value === "DEL") {
+        deleteLast();
+      } 
+      else if (value === "=") {
+        calculate();
+      } 
+      else {
+        appendValue(value);
+      }
+    });
+  });
+
+  function appendValue(value) {
+    if (display.innerText === "0") {
+      currentValue = value;
+    } else {
+      currentValue += value;
+    }
+    display.innerText = currentValue;
+  }
+
+  function clearDisplay() {
+    currentValue = "";
+    display.innerText = "0";
+  }
+
+  function deleteLast() {
+    currentValue = currentValue.slice(0, -1);
+    display.innerText = currentValue || "0";
+  }
+
+  function calculate() {
+    try {
+      currentValue = eval(currentValue).toString();
+      display.innerText = currentValue;
+    } catch {
+      display.innerText = "Error";
+      currentValue = "";
+    }
+  }
+</script>
+
+
+    </script>
 
 </body>
 
